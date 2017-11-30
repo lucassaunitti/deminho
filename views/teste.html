@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+-->
+    <link rel="stylesheet" type="text/css" href="../css/teste.css">
+    <title>Welcome to SantoDigital</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="../js/teste.js"></script>
+</head>
+<body>
+    <div id="btnFlutuante">
+        <img id="imagem" src="../img/santito.png" height="50" width="50">
+        <div id="chat-bot">
+            <div class="page-header">
+                <h1>Santito<small>Assistente Virtual</small></h1>
+            </div>
+            <div id="close">
+                <span id="closeX">X</span>        
+            </div>            
+            <div class="container">
+                <section id="chat">
+                    <div id="chat-history"></div>
+                    <div id="input">
+                        <div id="buttons-area"></div>
+                        
+                        <div class="text-input">
+                            <input id="ip-message" placeholder="Escreva sua mensagem...." onkeyup="if(event.keyCode==13){sendMessage();}"></input>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

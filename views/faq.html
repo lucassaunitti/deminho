@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-CA"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+	<title>FAQ Santito – Best FAQ</title>
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+	<link rel="stylesheet" id="ewd-ufaq-style-css" href="css/ewd-ufaq-styles.css" type="text/css" media="all">
+	<link rel="stylesheet" id="storefront-style-css" href="css/style.css" type="text/css" media="all">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="js/ewd-ufaq-js.js"></script>
+	<script type="text/javascript" src="js/effect.min.js"></script>
+	<script type="text/javascript" src="js/effect-slide.min.js"></script>
+	<script type="text/javascript">
+		//Abre a resposta
+		var ajaxurl = '';
+		var faq_accordion = true;
+		var faq_scroll = false;
+		var reveal_effect = 'slide';
+		
+	</script>
+	<style>
+		/*Botão de "+"*/
+		.ewd-ufaq-post-margin-symbol {
+			padding: 11px 4px;
+			height: auto;
+		}
+		.ewd-ufaq-post-margin-symbol span {
+			font-size: 18px;
+		}
+		.ewd-ufaq-question-form input, .ewd-ufaq-question-form textarea {
+			margin: 0 !important;
+		}
+		#conteudo{
+			overflow-y: auto;
+		}
+		body{
+		    text-align: justify;
+		    font-family: arial;	
+		}
+	</style>
+</head>
+
+<body class="page-template-default">
+	<div id="page">
+		<header id="masthead" class="site-header" role="banner" style=""></header>
+		<div id="content">
+			<div id="conteudo" class="col-full">
+				<header class="entry-header">
+					<h3 class="entry-title"><strong>Buscar FAQs</strong></h3>
+				</header>	
+				<div id="ewd-ufaq-jquery-ajax-search" class="pure-control-group ui-front" style="position:relative;">
+					<label id="ufaq-ajax-search-lbl" class="ewd-otp-field-label ewd-otp-bold">Busca rápida:</label>
+					<input type="text" id="ufaq-ajax-text-input" class="ufaq-text-input ui-autocomplete-input" name="Question " placeholder="Parcele Fácil" value="" autocomplete="off">
+				</div>
+
+				<div class="ufaq-faq-category-title" data-categoryid="2">
+					<h4>Perguntas Frequêntes</h4>
+				</div>
+			</div>
+		</div>
+		<header id="masthead" class="site-header" role="banner" style=""></header>
+	</div>
+</body>
