@@ -266,7 +266,7 @@ function printBotMessage(message, options) {
 
   function newpostReq(request){
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://backend-dot-chatbot-sd.appspot.com/_ah/api/sd/v1/chatbot";
+    var url = "https://backend-dot-chatbot-sd.appspot.com/_ah/api/sd/v1/chatbot";
     var data = JSON.stringify(request);
 
     xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
