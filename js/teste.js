@@ -54,44 +54,8 @@ function reqApi() {
   
   console.log("User:");
   console.log(request);
-  
-  newpostReq(request);
-  /*
-  $.post({
-    url: "http://backend-dot-chatbot-sd.appspot.com/_ah/api/sd/v1/chatbot",
-    type: 'POST',
-    dataType: "json",
-    data: JSON.stringify(request),
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader('Content-Type', 'application/json');
-    },
-    success: function(response) {
-      request = response;
-      
-      console.log("Bot:");
-      console.log(response);
-      
-      if (response.level == 1) {
-        $('#chat').css("display", "block");
-      }
 
-      $("#buttons-area").fadeOut(0);
-      girarScroll();
-      configuraCampo(response.state);
-      printBotMessage(response.answer, response.options);
-    },
-    /*
-    error: function(e) {
-      console.log("Problems requesing  API");
-      console.error(e);
-    }
-    */
-    /*
-    error: function (jqXHR, textStatus, errorThrown) {
-            alert('Internal error: ' + jqXHR.status);
-    }
-  });
-  */
+  newpostReq(request);
 }
 
 /*******************************************************************************
@@ -116,7 +80,6 @@ function buildButtons(options) {
 function printUserMessage(message) {
   var html = '<div class="message-me">';
   html += '<div class="user-txt">' + message + '</div></div>';
-  //html += '<div class="user-indicator"></div>';
   $('#chat-history').append(html);
   $("#ip-message").val("");
   girarScroll();
@@ -133,7 +96,9 @@ function printBotMessage(message, options) {
 }
 
   $(function() {        
-    //$('#datetimepicker1').datetimepicker();
+    $("#datepicker").datepicker();
+    $("#text-calendar").fadeOut(0);
+
     $("#chat-bot").fadeOut(0);
 
     $("#imagem").click(function(){  
@@ -143,6 +108,27 @@ function printBotMessage(message, options) {
     $("#close").click(function(){
       fechaChat();
     });
+
+    $.datepicker.regional['pt-BR'] = {
+      closeText: 'Fechar',
+      prevText: '&#x3c;Anterior',
+      nextText: 'Pr&oacute;ximo&#x3e;',
+      currentText: 'Hoje',
+      monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho',
+      'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun',
+      'Jul','Ago','Set','Out','Nov','Dez'],
+      dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'],
+      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+      dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'],
+      weekHeader: 'Sm',
+      dateFormat: 'dd/mm/yy',
+      firstDay: 0,
+      isRTL: false,
+      showMonthAfterYear: false,
+      yearSuffix: ''};
+    $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+
   });
   
   function AbreChat(){
@@ -190,9 +176,14 @@ function printBotMessage(message, options) {
   }
 
   function configuraCampo(state){
-    $("#ip-message").removeAttr( "type" );
-    $("#ip-message").removeAttr( "onclick" );
-    $("#ip-message").datepicker(false);
+    $("#text-calendar").fadeOut(0);
+    $(".text-input").fadeIn(0);
+    $("#ip-message").removeAttr("type");
+    $("#ip-message").removeAttr("onclick");
+    $("#ip-message").removeAttr("readonly");
+
+    console.log(state);
+
     if (state == "S_CLICK"){
       $(".text-input").fadeOut(0);
     }else{
@@ -218,7 +209,8 @@ function printBotMessage(message, options) {
         $("#ip-message").attr("type", "email");
       
       }else if (state == "S_TYPE_DATE"){
-        $("#ip-message").datepicker();
+        $(".text-input").fadeOut(0);
+        $("#text-calendar").fadeIn(0);
       }
     }
   }

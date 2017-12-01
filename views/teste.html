@@ -10,6 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script src="../js/teste.js"></script>
+
+    <!--Calendário-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
 </head>
 <body>
     <div id="btnFlutuante">
@@ -27,17 +32,12 @@
                     <div id="input">
                         <div id="buttons-area"></div>
                         
-                        <div class="text-input">
-                            <input id="ip-message" placeholder="Escreva sua mensagem...." onkeyup="if(event.keyCode==13){sendMessage();}"></input>
+                        <div id="text-calendar" class="form-group">
+                            <input id="datepicker" type='text' class="form-control"/>
                         </div>
 
-                        <div id="text-calendar" class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='text' class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
+                        <div class="text-input">
+                            <input id="ip-message" placeholder="Escreva sua mensagem...." onkeyup="if(event.keyCode==13){sendMessage();}"></input>
                         </div>
 
                     </div>
