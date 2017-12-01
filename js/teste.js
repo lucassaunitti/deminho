@@ -133,6 +133,7 @@ function printBotMessage(message, options) {
 }
 
   $(function() {        
+    //$('#datetimepicker1').datetimepicker();
     $("#chat-bot").fadeOut(0);
 
     $("#imagem").click(function(){  
@@ -191,13 +192,20 @@ function printBotMessage(message, options) {
   function configuraCampo(state){
     $("#ip-message").removeAttr( "type" );
     $("#ip-message").removeAttr( "onclick" );
+    $("#ip-message").datepicker(false);
     if (state == "S_CLICK"){
       $(".text-input").fadeOut(0);
     }else{
       $(".text-input").fadeIn(0);
 
-      if (state == "S_TYPE_INT"){
+      if (state == "S_TYPE_DAY"){
         $("#ip-message").mask('99');
+
+      }else if (state == "S_TYPE_INT"){
+        $("#ip-message").mask('99999');
+
+      }else if (state == "S_TYPE_FLOAT"){
+        $("#ip-message").mask('99999,99');
 
       }else if (state == "S_TYPE_CPF"){
         $("#ip-message").mask('999.999.999-99');
@@ -208,6 +216,9 @@ function printBotMessage(message, options) {
 
       }else if (state == "S_TYPE_EMAIL"){
         $("#ip-message").attr("type", "email");
+      
+      }else if (state == "S_TYPE_DATE"){
+        $("#ip-message").datepicker();
       }
     }
   }
@@ -266,7 +277,8 @@ function printBotMessage(message, options) {
 
   function newpostReq(request){
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://backend-dot-chatbot-sd.appspot.com/_ah/api/sd/v1/chatbot";
+    //var url = "http://backend-dot-chatbot-sd.appspot.com/_ah/api/sd/v1/chatbot";
+    var url = "https://us-central1-chatbot-santito.cloudfunctions.net/exchatbot";
     var data = JSON.stringify(request);
 
     xmlhttp.onreadystatechange = function() {//Call a function when the state changes.

@@ -21,16 +21,10 @@ class IndexPage(webapp2.RequestHandler):
     def get(self):
         path = os.path.join(os.path.dirname(__file__), 'views/index.html')
         self.response.out.write(template.render(path, {}))
-        
-class ClientPage(webapp2.RequestHandler):
-    def get(self):
-        path = os.path.join(os.path.dirname(__file__), 'views/carr.html')
-        self.response.out.write(template.render(path, {}))
 
 app = webapp2.WSGIApplication([
     ('/external', ExternalChat),
     ('/faq', Faq),
     ('/teste', TestePage),
     ('/', IndexPage),
-    ('/carr', ClientPage),
 ], debug=True)
